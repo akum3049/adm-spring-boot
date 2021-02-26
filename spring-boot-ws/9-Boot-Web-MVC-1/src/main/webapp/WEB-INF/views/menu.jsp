@@ -12,7 +12,8 @@
 <p align="center">
 <a href="./">Home</a> |
 	<a href="./loadForm">Add New Product</a> |
-	<a href="./loadProducts">List All Product</a> 
+	<a href="./loadProducts">List All Product</a> |
+	<a href="./loadFindForm">Find Product</a>
 </p>
 </body>
 </html>

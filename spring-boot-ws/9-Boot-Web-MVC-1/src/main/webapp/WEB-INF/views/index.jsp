@@ -14,6 +14,10 @@
 	<h2>
 		<a href="./loadForm">Add New Product</a>
 	</h2>
+	
+	<h2>
+		<a href="./loadFindForm">Find Product</a>
+	</h2>
 
 	<h2>
 		<a href="./loadProducts">List All Product</a>

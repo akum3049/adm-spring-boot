@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,9 +15,10 @@
 		
 		let id=document.querySelector("#id");
 		
-		if(id.value=="" || id.value==NaN || id==" "){
+		if(id.value=="" || id.value==NaN || id.value==" "){
 		
 		   document.querySelector("#idError").innerHTML="ID Must Be Required";
+		   
 		   return false;
 		
 		}
@@ -32,46 +35,46 @@
 </head>
 <body>
 
-	<h1 align="center">Product Form</h1>
+	<h1 align="center">Product Update Form-V1</h1>
 	<hr />
 
 	<jsp:include page="./menu.jsp" />
-	<form action="./saveProductV1" method="post" onSubmit="return validateData()">
+
+	<form:form action="./saveProductV1" method="post"
+		onSubmit="return validateData()" modelAttribute="product">
 
 		<table align="center">
 			<tr>
 				<th>Product ID</th>
-				<td><input name="id" id="id"></td>
-				<td>
-				<span id="idError"></span>
-				</td>
+				<td><form:input path="id" id="id" readonly="true"/></td>
+				<td><span id="idError"></span></td>
 			</tr>
 
 			<tr>
 				<th>Product Name</th>
-				<td><input name="name" id="name"></td>
+				<td><form:input path="name" id="name" /></td>
 			</tr>
 
 			<tr>
 				<th>Price</th>
-				<td><input name="price" id="price" id="description"></td>
+				<td><form:input path="price" id="price" /></td>
 			</tr>
 
 			<tr>
 				<th>Description</th>
-				<td><textarea name="description"></textarea></td>
+				<td><form:textarea path="description" id="description" /></td>
 			</tr>
 
 			<tr>
 				<th colspan="2">
-					<button type="submit">Save</button>
+					<button type="submit">Update</button>
 					<button type="reset">Clear All</button>
 				</th>
 			</tr>
 
 
 		</table>
-	</form>
+	</form:form>
 
 	<hr />
 

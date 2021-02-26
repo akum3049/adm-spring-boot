@@ -22,18 +22,23 @@
 				<th>Product Name</th>
 				<th>Price</th>
 				<th>Description</th>
+				<th>Action1</th>
+				<th>Action2</th>
 			</tr>
 
 		</thead>
 
 		<tbody>
 
-			<c:forEach var="prod" items="${productList}">
+			<c:forEach var="prod" items="${productsList}">
 				<tr>
 					<td>${prod.id}</td>
 					<td>${prod.name}</td>
 					<td>${prod.price}</td>
 					<td>${prod.description}</td>
+					<th><a href="./findProduct?id=${prod.id}">Edit</a></th>
+					<th><a href='./deleteProduct?id=${prod.id}'>Delete</a></th>
+
 				</tr>
 			</c:forEach>
 

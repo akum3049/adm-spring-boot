@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -51,20 +52,51 @@ public class ProductController {
 		// save prod to DB
 
 		productService.save(prod);
+
+		return "redirect:/loadProducts";
+	}
+
+	@RequestMapping("/loadFindForm")
+	public String loadFindForm() {
+		return "find-product-form";
+	}
+
+	@RequestMapping("/findProduct")
+	public ModelAndView findProduct(@RequestParam("id") int id) {
+		
+		
+		ModelAndView mav = new ModelAndView("product-update-form2");
+
+		Product product=productService.findById(id);
+		
+		if(product==null) {
+			mav.setViewName("find-product-form");
+			mav.addObject("message", "Product Id "+id+" Does not Exists");
+			return mav;
+		}
+
+		mav.addObject("product",product);
+		
+		return mav;
+	}
+
+	@RequestMapping("/deleteProduct")
+	public String deleteProduct(@RequestParam("id") int id) {
+
+		productService.deleteProduct(id);
+
 		return "redirect:/loadProducts";
 	}
 
 	@GetMapping("/loadProducts")
-	public ModelAndView listAllProducts(){
-		
-		ModelAndView mav=new ModelAndView("products");
-		
-		
-		mav.addObject(productService.listAllProducts());
-		
-		
+	public ModelAndView listAllProducts() {
+
+		ModelAndView mav = new ModelAndView("products");
+
+		mav.addObject("productsList", productService.listAllProducts());
+
 		return mav;
-		
+
 	}
 
 }
