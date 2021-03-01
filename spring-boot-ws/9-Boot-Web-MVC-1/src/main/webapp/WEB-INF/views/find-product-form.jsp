@@ -44,7 +44,22 @@
 			<tr>
 				<th>Product ID</th>
 				<td><input name="id" id="id"></td>
+				
 				<td><span id="idError"></span> <span>${message}</span></td>
+			</tr>
+			
+			<tr>
+				<td>Select ID</td>
+				<td>
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						
+					</select>
+				</td>
+			
 			</tr>
 
 

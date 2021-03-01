@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 align="center">Products</h1>
+	<h1 align="center">My Products List</h1>
 	<hr />
 
 	<jsp:include page="./menu.jsp" />
