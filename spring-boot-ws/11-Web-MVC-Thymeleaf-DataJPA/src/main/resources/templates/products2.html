@@ -41,20 +41,27 @@
 	</table>
 
 
-	
-		<nav aria-label="Page navigation example" class="mt-2">
 
-			<ul class="pagination justify-content-center pagination-lg">
-				<li class="page-item" th:if="${productPage.totalPages > 0}"
-					th:each="pageNumber : ${pageNumbers}"><a class="page-link"
+	<nav aria-label="Page navigation example" class="mt-2">
+
+		<ul class="pagination justify-content-center pagination-lg">
+
+			<li th:if="${productPage.totalPages >0}"
+				th:each="pageNumber : ${pageNumbers}"
+				th:class="${pageNumber==productPage.number + 1} ? 'page-item active'">
+
+
+				<a	class="page-link"
 					th:href="@{/listProducts(size=${productPage.size}, page=${pageNumber})}"
-					th:text=${pageNumber}></a></li>
+					th:text=${pageNumber}>
+				</a>
+			</li>
 
 
 
-			</ul>
-		</nav>
-	
+		</ul>
+	</nav>
+
 
 
 
